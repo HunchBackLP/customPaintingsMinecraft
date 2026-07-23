@@ -1,8 +1,38 @@
-name: Build Resource Pack Release
+# name: Build Resource Pack Release
+
+# on:
+#   release:
+#     types: [published]
+
+# permissions:
+#   contents: write
+
+# jobs:
+#   build-resourcepack:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+
+#       - name: Create Resource Pack ZIP
+#         run: |
+#           cd customPaintingRessourcePack
+#           zip -r ../customPaintingRessourcePack.zip .
+
+#       - name: Upload ZIP to Release
+#         uses: softprops/action-gh-release@v2
+#         with:
+#           files: ${{ github.workspace }}/customPaintingRessourcePack.zip
+
+name: Build Resource Pack
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - main
+    paths:
+      - "customPaintingRessourcePack/**"
 
 permissions:
   contents: write
@@ -20,7 +50,8 @@ jobs:
           cd customPaintingRessourcePack
           zip -r ../customPaintingRessourcePack.zip .
 
-      - name: Upload ZIP to Release
-        uses: softprops/action-gh-release@v2
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
         with:
-          files: ${{ github.workspace }}/customPaintingRessourcePack.zip
+          name: customPaintingRessourcePack
+          path: customPaintingRessourcePack.zip
