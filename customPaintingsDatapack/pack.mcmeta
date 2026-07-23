@@ -1,0 +1,14 @@
+{
+    "pack":
+    {
+        "pack_format":107.1,
+        "supported_formats":
+        {
+            "min_inclusive":42.0,
+            "max_inclusive":107.1
+        },
+        "description":"Custom paintings weil ich eine Mission hatte",
+        "min_format":42.0,
+        "max_format":107.0
+    }
+}
