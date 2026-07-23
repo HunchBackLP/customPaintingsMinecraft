@@ -23,4 +23,4 @@ jobs:
       - name: Upload ZIP to Release
         uses: softprops/action-gh-release@v2
         with:
-          files: customPaintingRessourcePack.zip
+          files: ${{ github.workspace }}/customPaintingRessourcePack.zip
